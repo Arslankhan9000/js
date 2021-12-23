@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Animated Thermometer</title>
+<style>
+        @font-face{
+    font-family: Poppins;
+    src:url("../Poppins-Medium.ttf");
+}
+*
+{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Outer-div
+{
+    width: 100vw;
+    height: 100vh;
+    /* background: #2a364f; */
+    background: #161623;
+    display: grid;
+    place-items: center;
+}
+
+.Inner-div
+{
+    width: 80vw;
+    height: 70vh;
+    display: grid;
+    place-items: center;
+}
+
+.main-heading
+{
+    padding: 30px;
+    color: #ffff;
+    text-shadow: 0px 1px 8px rgba(255,255,255,0.4);
+    font-size: 8rem;
+}
+
+</style>
+</head>
+<body>
+<div class="Outer-div">
+    <div class="Inner-div">
+        <h1 class="main-heading">I am Thermometer  <span id="Animated-thermometer" class="fa"></span></h1>
+    </div>
+</div>
+<!-- fontaesome js file  -->
+
+
+<script>
+// We use Fontawesome chetsheets to animated using unicodes 
+const tempLoad = () =>
+{
+let Thermometer = document.getElementById('Animated-thermometer');
+Thermometer.innerHTML = "&#xf2cb";  // this is the unicode of fontawesome thermometer icon
+// We add color using inner css use 
+Thermometer.style.color = "#2196f3";
+
+// we use set time to run step by step with 1 sec delay
+
+setTimeout(()=>{
+    Thermometer.innerHTML = "&#xf2ca";
+    Thermometer.style.color = "#f8b627";
+},1000)
+
+
+setTimeout(()=>{
+    Thermometer.innerHTML = "&#xf2c9";
+},2000)
+
+
+setTimeout(()=>{
+    Thermometer.innerHTML = "&#xf2c8";
+},3000)
+
+
+setTimeout(()=>{
+    Thermometer.innerHTML = "&#xf2c7";
+    Thermometer.style.color = "#d63031";
+},4000)
+
+}
+
+tempLoad();
+
+// hmara loop stop hogya he to loop ko xhlane keliye hmn set interval use krna hoga
+// Mean after 5sec hmara loop contionously xhlta rhega mean infinite loop
+
+setInterval(tempLoad,5000);
+</script>
+</body>
+</html>
